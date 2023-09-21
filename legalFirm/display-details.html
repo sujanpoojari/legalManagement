@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+
+        .container h2 {
+            text-align: center;
+        }
+
+        .details-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        span {
+            display: block;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="index.html" method="get">
+        <h2>Client Details</h2>
+        <div class="details-group">
+            <label for="clientName">Client Name</label>
+            <span id="clientName">N/A</span>
+        </div>
+        <div class="details-group">
+            <label for="caseType">Case Type</label>
+            <span id="caseType">N/A</span>
+        </div>
+        <div class="details-group">
+            <label for="caseDetails">Case Details</label>
+            <span id="caseDetails">N/A</span>
+        </div>
+        <div class="details-group">
+            <label for="contactNumber">Contact Number</label>
+            <span id="contactNumber">N/A</span>
+        </div>
+        <div class="details-group">
+            <label for="attorney">Attorney</label>
+            <span id="attorney">N/A</span>
+        </div>
+        <div class="ml-auto"> <div class="form-group">
+            <button type="submit" class="btn-submit">Submit</button>
+        </div>
+    </div>
+    
+</form>
+    <script>
+        // JavaScript to extract and display client details from URL parameters
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const params = Object.fromEntries(urlSearchParams.entries());
+
+        // Update the content of the displayed details
+        document.getElementById('clientName').textContent = params.clientName || 'N/A';
+        document.getElementById('caseType').textContent = params.caseType || 'N/A';
+        document.getElementById('caseDetails').textContent = params.caseDetails || 'N/A';
+        document.getElementById('contactNumber').textContent = params.contactNumber || 'N/A';
+        document.getElementById('attorney').textContent = params.attorney || 'N/A';
+    </script>
+</body>
+</html>
